@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Pull the code from your GitHub repository
-                git branch: 'main', url: 'https://github.com/Virender003/Devops.git'
+                git branch: 'main', url: 'https://github.com/Virender003/Devops.git', branch: 'main'
             }
         }
         stage('Build') {
