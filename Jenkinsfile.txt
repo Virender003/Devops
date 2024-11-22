@@ -1,42 +1,25 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
-                // Pull the code from your GitHub repository
-                git branch: 'main', url: 'https://github.com/Virender003/Devops.git', branch: 'master'
+                git branch: 'main', url: 'https://github.com/Virender003/Devops.git'
             }
         }
         stage('Build') {
             steps {
-                // Example: Placeholder for the build process
-                // Replace this with actual build commands for your project
-                bat 'echo "Building the project..."'
+                sh './build_script.sh' // Assuming a shell script for building
             }
         }
         stage('Test') {
             steps {
-                // Example: Placeholder for running tests
-                // Replace with actual test commands
-                bat 'echo "Running tests..."'
+                sh './test_script.sh' // Assuming a shell script for testing
             }
         }
         stage('Deploy') {
             steps {
-                // Example: Placeholder for deployment process
-                // Replace with your deployment steps
-                bat 'echo "Deploying the application..."'
+                sh './deploy_script.sh' // Assuming a shell script for deployment
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully.'
-        }
-        failure {
-            echo 'Pipeline failed.'
         }
     }
 }
